@@ -4,6 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "cypress:open": "./node_modules/.bin/cypress open",
+    "cypress:run": "cypress run",
     "start": "next start"
   },
   "dependencies": {
@@ -22,6 +24,7 @@
     "@typescript-eslint/parser": "^4.15.1",
     "babel-plugin-inline-react-svg": "^1.1.2",
     "babel-plugin-styled-components": "^1.10.0",
+    "cypress": "^6.4.0",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-config-standard": "^16.0.2",
