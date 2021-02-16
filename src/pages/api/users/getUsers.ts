@@ -8,17 +8,11 @@ export default async function getUsers(
   res: NextApiResponse
 ): Promise<void> {
   const { method } = req
-  const { id } = req.query
 
-  if (method === 'DELETE') {
-    await prisma.users.delete({
-      where: {
-        id: Number(id)
-      }
-    })
-
-    res.status(200).send('')
+  if (method === 'GET') {
+    const users = await prisma.users.findMany()
+    res.status(200).json(users)
   } else {
-    res.status(501).json({ msg: 'Method not supported' })
+    res.status(505).json({ msg: 'Method not supported' })
   }
 }

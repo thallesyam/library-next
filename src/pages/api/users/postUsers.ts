@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { UserInterface } from '../../interface'
+import { UserInterface } from '../../../interface'
 
 const prisma = new PrismaClient()
 
@@ -34,6 +34,6 @@ export default async function getUsers(
 
     res.status(200).json({ data })
   } else {
-    res.status(501).json({ msg: 'Method not supported' })
+    res.status(505).json({ msg: 'Method not supported' })
   }
 }

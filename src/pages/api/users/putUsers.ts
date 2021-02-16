@@ -9,7 +9,7 @@ export default async function getUsers(
 ): Promise<void> {
   const { method } = req
   const { id } = req.query
-  const { name, email, phone, city, uf, image } = req.body
+  const { name, phone, city, uf, image } = req.body
 
   if (method === 'PUT') {
     const user = await prisma.users.findUnique({
@@ -19,27 +19,24 @@ export default async function getUsers(
     })
 
     if (user) {
-      const newUser = {
-        name: name || user?.name,
-        email: email || user?.email,
-        phone: phone || user?.phone,
-        city: city || user?.city,
-        uf: uf || user?.uf,
-        image: image || user?.image
-      }
-
       const editedUser = await prisma.users.update({
         where: {
           id: Number(user?.id)
         },
-        data: newUser
+        data: {
+          name: name || user?.name,
+          phone: phone || user?.phone,
+          city: city || user?.city,
+          uf: uf || user?.uf,
+          image: image || user?.image
+        }
       })
 
       res.status(200).json(editedUser)
+    } else {
+      res.status(401).json({ msg: 'Not found id' })
     }
-
-    res.status(404).json({ msg: 'Not found user' })
   } else {
-    res.status(501).json({ msg: 'Method not supported' })
+    res.status(505).json({ msg: 'Method not supported' })
   }
 }

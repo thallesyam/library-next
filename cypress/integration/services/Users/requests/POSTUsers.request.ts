@@ -5,7 +5,7 @@ import payloadAddUsers from '../payloads/add-user.json'
 export default function createUsers(): Cypress.Chainable<Cypress.Response> {
   return cy.request({
     method: 'POST',
-    url: '/api/postUsers',
+    url: '/api/users/postUsers',
     body: payloadAddUsers,
     failOnStatusCode: false
   })

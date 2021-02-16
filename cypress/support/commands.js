@@ -19,7 +19,7 @@ import deleteUsers from '../integration/services/Users/requests/DELETEUsers.requ
 Cypress.Commands.add('createUser', () => {
   cy.request({
     method: 'POST',
-    url: '/api/postUsers',
+    url: '/api/users/postUsers',
     body: {
       name: 'Marcos',
       email: 'marcos@gmail.com',

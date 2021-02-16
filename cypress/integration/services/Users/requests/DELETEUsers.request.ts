@@ -5,7 +5,7 @@ export default function deleteUsers(
 ): Cypress.Chainable<Cypress.Response> {
   return cy.request({
     method: 'DELETE',
-    url: `/api/deleteUsers?id=${id}`,
+    url: `/api/users/deleteUsers?id=${id}`,
     failOnStatusCode: false
   })
 }
