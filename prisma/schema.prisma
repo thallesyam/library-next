@@ -18,6 +18,7 @@ model Users {
   city  String
   uf    String
   Book  Books[]
+  image String
 }
 
 model Books {

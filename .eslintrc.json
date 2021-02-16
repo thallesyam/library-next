@@ -21,18 +21,16 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "space-before-function-paren": "off",
     "react/prop-types": "off",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-empty-interface": "off", 
-    "@typescript-eslint/no-use-before-define": ["error"]
-
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": "off"
   }
 }

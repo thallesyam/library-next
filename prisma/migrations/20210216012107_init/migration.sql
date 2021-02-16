@@ -6,6 +6,7 @@ CREATE TABLE "Users" (
     "phone" TEXT NOT NULL,
     "city" TEXT NOT NULL,
     "uf" TEXT NOT NULL,
+    "image" TEXT NOT NULL,
 
     PRIMARY KEY ("id")
 );
