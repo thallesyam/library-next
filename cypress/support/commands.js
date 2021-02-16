@@ -28,10 +28,11 @@ Cypress.Commands.add('createUser', () => {
       uf: 'RJ',
       image:
         'https://images.pexels.com/photos/1121796/pexels-photo-1121796.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-    }
+    },
+    failOnStatusCode: false
   }).then(response => {
-    expect(response.body.id).is.not.null
-    cy.log(response.body.id)
+    expect(response.body.data.id).is.not.null
+    cy.log(response.body.data.id)
 
     Cypress.env('createUserId', response.body.id)
   })
@@ -40,8 +41,10 @@ Cypress.Commands.add('createUser', () => {
 Cypress.Commands.add('deleteUser', () => {
   allUsers().should(allUsers => {
     if (allUsers.body.length >= 1) {
-      deleteUsers(allUsers.body[0].id).should(deleteUser => {
-        expect(deleteUser.status).to.be.eq(200)
+      allUsers.body.map((user, index) => {
+        deleteUsers(allUsers.body[index].id).should(deleteUser => {
+          expect(deleteUser.status).to.be.eq(200)
+        })
       })
     }
   })

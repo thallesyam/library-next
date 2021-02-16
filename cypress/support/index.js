@@ -5,7 +5,7 @@ import './commands'
 // require('./commands')
 before(() => {
   cy.server()
-  // cy.createUser()
+  cy.createUser()
 })
 
 after(() => {
