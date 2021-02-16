@@ -3,11 +3,13 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-before(() => {
+beforeEach(() => {
   cy.server()
   cy.createUser()
+  cy.createBook()
 })
 
-after(() => {
+afterEach(() => {
+  cy.deleteBook()
   cy.deleteUser()
 })

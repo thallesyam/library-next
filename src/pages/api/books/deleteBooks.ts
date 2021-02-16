@@ -11,7 +11,7 @@ export default async function deleteUsers(
   const { id } = req.query
 
   if (method === 'DELETE') {
-    await prisma.users.delete({
+    await prisma.books.delete({
       where: {
         id: Number(id)
       }

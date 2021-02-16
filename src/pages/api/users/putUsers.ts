@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 const prisma = new PrismaClient()
 
-export default async function getUsers(
+export default async function putUsers(
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> {

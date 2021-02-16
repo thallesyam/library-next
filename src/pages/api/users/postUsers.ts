@@ -4,7 +4,7 @@ import { UserInterface } from '../../../interface'
 
 const prisma = new PrismaClient()
 
-export default async function getUsers(
+export default async function postUsers(
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> {

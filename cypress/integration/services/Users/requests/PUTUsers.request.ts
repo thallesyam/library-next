@@ -9,9 +9,6 @@ export default function editUsers(
     method: 'PUT',
     url: `/api/users/putUsers?id=${id}`,
     body: payloadEditUsers,
-    headers: {
-      'Content-Type': 'application/json'
-    },
     failOnStatusCode: false
   })
 }

@@ -1,12 +1,12 @@
 /// <reference types="cypress" />
 
-import allUsers from '../requests/GETUsers.request'
 import deleteUsers from '../requests/DELETEUsers.request'
+import postUsers from '../requests/POSTUsers.request'
 
 describe('Delete Users', () => {
   it('should create and delete one users', () => {
-    allUsers().should(allUsers => {
-      deleteUsers(allUsers.body[0].id).should(deleteUser => {
+    postUsers().should(reqAddUser => {
+      deleteUsers(reqAddUser.body.data.id).should(deleteUser => {
         expect(deleteUser.status).to.be.eq(200)
       })
     })
