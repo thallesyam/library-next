@@ -11,33 +11,29 @@ export default async function getUsers(
   const { method } = req
   const { name, email, phone, city, uf, image } = req.body
 
-  const user: UserInterface = {
-    name,
-    email,
-    phone,
-    city,
-    uf,
-    image
-  }
-
-  const data = await prisma.users.create({
-    data: {
-      name: user.name,
-      email: user.email,
-      phone: user.phone,
-      city: user.city,
-      uf: user.uf,
-      image: user.image
+  if (method === 'POST') {
+    const user: UserInterface = {
+      name,
+      email,
+      phone,
+      city,
+      uf,
+      image
     }
-  })
 
-  switch (method) {
-    case 'POST':
-      res.status(200).json({ data })
-      break
+    const data = await prisma.users.create({
+      data: {
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        city: user.city,
+        uf: user.uf,
+        image: user.image
+      }
+    })
 
-    default:
-      res.status(501).json({ msg: 'Method not supported' })
-      break
+    res.status(200).json({ data })
+  } else {
+    res.status(501).json({ msg: 'Method not supported' })
   }
 }

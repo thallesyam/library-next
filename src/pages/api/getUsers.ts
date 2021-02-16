@@ -9,15 +9,10 @@ export default async function getUsers(
 ): Promise<void> {
   const { method } = req
 
-  const users = await prisma.users.findMany()
-
-  switch (method) {
-    case 'GET':
-      res.status(200).json(users)
-      break
-
-    default:
-      res.status(501).json({ msg: 'Method not supported' })
-      break
+  if (method === 'GET') {
+    const users = await prisma.users.findMany()
+    res.status(200).json(users)
+  } else {
+    res.status(501).json({ msg: 'Method not supported' })
   }
 }

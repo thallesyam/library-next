@@ -10,19 +10,15 @@ export default async function getUsers(
   const { method } = req
   const { id } = req.query
 
-  await prisma.users.delete({
-    where: {
-      id: Number(id)
-    }
-  })
+  if (method === 'DELETE') {
+    await prisma.users.delete({
+      where: {
+        id: Number(id)
+      }
+    })
 
-  switch (method) {
-    case 'DELETE':
-      res.status(200).send('')
-      break
-
-    default:
-      res.status(501).json({ msg: 'Method not supported' })
-      break
+    res.status(200).send('')
+  } else {
+    res.status(501).json({ msg: 'Method not supported' })
   }
 }
