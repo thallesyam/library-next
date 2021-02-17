@@ -1,8 +1,8 @@
-import allUsers from '../integration/services/Users/requests/GETUsers.request'
-import deleteUsers from '../integration/services/Users/requests/DELETEUsers.request'
+import allUsers from '../integration/services/Backend/Users/requests/GETUsers.request'
+import deleteUsers from '../integration/services/Backend/Users/requests/DELETEUsers.request'
 
-import allBooks from '../integration/services/Books/requests/GETBooks.request'
-import deleteBooks from '../integration/services/Books/requests/DELETEBooks.request'
+import allBooks from '../integration/services/Backend/Books/requests/GETBooks.request'
+import deleteBooks from '../integration/services/Backend/Books/requests/DELETEBooks.request'
 
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })

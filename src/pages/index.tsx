@@ -1,10 +1,42 @@
-import styled from 'styled-components'
+import React from 'react'
+import Link from 'next/link'
 
-const Title = styled.h1`
-  color: blue;
-  font-size: 50px;
-`
+import {
+  Container,
+  ContainerLogin,
+  ContainerImage,
+  Register,
+  OpenBook
+} from '../styles/pages/Home'
 
-export default function Home() {
-  return <Title>Setup Next + TS + Styled Components + ESlint e Prettier</Title>
+import Studying from '../public/studying.svg'
+
+const Home = (): JSX.Element => {
+  return (
+    <Container>
+      <ContainerLogin>
+        <OpenBook />
+        <h1>Faça seu Login</h1>
+
+        <form>
+          <input type="text" placeholder="Save Me" />
+          <br />
+          <button type="submit">Enviar</button>
+        </form>
+
+        <Link href="/register">
+          <a>
+            <Register />
+            <span>Não tenho cadastro</span>
+          </a>
+        </Link>
+      </ContainerLogin>
+
+      <ContainerImage>
+        <Studying />
+      </ContainerImage>
+    </Container>
+  )
 }
+
+export default Home
