@@ -10,9 +10,7 @@ import {
 } from '../styles/pages/Register'
 
 import Reading from '../public/reading.svg'
-import formatSlug from '../utils/formatSlug'
 import validate from '../utils/validateInput'
-import { UserInterface } from '../interface/index'
 
 const Register = (): JSX.Element => {
   const [emptyUser, setEmptyUser] = useState(false)
@@ -144,7 +142,9 @@ const Register = (): JSX.Element => {
           </div>
 
           <br />
-          <button type="submit">Enviar</button>
+          <button data-cy="submit" type="submit">
+            Enviar
+          </button>
         </form>
       </ContainerLogin>
     </Container>

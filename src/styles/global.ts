@@ -53,7 +53,8 @@ export default createGlobalStyle`
     border-spacing: 0;
   }
   body {
-    background: var(--background);
+    background: #f0f0f0;
+    overflow-x: hidden;
     line-height: 1;
     font-size: 100%;
     font-family: 'Roboto', sans-serif;

@@ -4,6 +4,8 @@ import deleteUsers from '../integration/services/Backend/Users/requests/DELETEUs
 import allBooks from '../integration/services/Backend/Books/requests/GETBooks.request'
 import deleteBooks from '../integration/services/Backend/Books/requests/DELETEBooks.request'
 
+import generateRandomId from '../../src/utils/generateRandomId'
+
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
 //
@@ -25,6 +27,7 @@ Cypress.Commands.add('createUser', () => {
     url: '/api/users/postUsers',
     body: {
       name: 'Marcos',
+      userId: generateRandomId(),
       email: 'marcos@gmail.com',
       phone: '21932245266',
       city: 'Rio de Janeiro',
@@ -34,10 +37,10 @@ Cypress.Commands.add('createUser', () => {
     },
     failOnStatusCode: false
   }).then(response => {
+    cy.log(response.body.data.userId)
     expect(response.body.data.id).is.not.null
-    cy.log(response.body.data.id)
 
-    Cypress.env('createUserId', response.body.id)
+    Cypress.env('createUserId', response.body.data.userId)
   })
 })
 

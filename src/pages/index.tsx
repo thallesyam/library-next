@@ -14,7 +14,6 @@ import {
 
 import Studying from '../public/studying.svg'
 import { UserInterface } from '../interface'
-import formatSlug from '../utils/formatSlug'
 
 const Home = (): JSX.Element => {
   const [notUser, setNotUser] = useState(false)
@@ -31,14 +30,15 @@ const Home = (): JSX.Element => {
       )
 
       const {
-        data: { name, userId }
+        data: { name, userId, id }
       } = await request
 
       if (name && userId) {
         localStorage.setItem('username', name)
         localStorage.setItem('userId', userId)
+        localStorage.setItem('id', JSON.stringify(id))
         setNotUser(false)
-        router.push(`/${formatSlug(name)}`)
+        router.push(`/${userId}`)
       } else {
         setNotUser(true)
       }
