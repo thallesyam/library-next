@@ -82,6 +82,12 @@ export const ContainerLogin = styled.section`
         opacity: 0.8;
       }
     }
+
+    p {
+      font-size: 13px;
+      color: red;
+      margin-bottom: 10px;
+    }
   }
 
   a {

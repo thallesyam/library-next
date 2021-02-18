@@ -13,9 +13,10 @@ export default async function getUsers(
   if (method === 'GET') {
     const user = await prisma.users.findUnique({
       where: {
-        id: Number(id)
+        userId: id
       }
     })
+
     res.status(200).json(user)
   } else {
     res.status(505).json({ msg: 'Method not supported' })

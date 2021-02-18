@@ -11,14 +11,15 @@ generator client {
 }
 
 model Users {
-  id    Int     @id @default(autoincrement())
-  name  String
-  email String  @unique
-  phone String
-  city  String
-  uf    String
-  Book  Books[]
-  image String
+  id     Int     @id @default(autoincrement())
+  userId String  @unique
+  name   String
+  email  String  @unique
+  phone  String
+  city   String
+  uf     String
+  Book   Books[]
+  image  String
 }
 
 model Books {

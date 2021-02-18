@@ -1,6 +1,7 @@
 -- CreateTable
 CREATE TABLE "Users" (
     "id" SERIAL NOT NULL,
+    "userId" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
@@ -25,6 +26,9 @@ CREATE TABLE "Books" (
 
     PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Users.userId_unique" ON "Users"("userId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Users.email_unique" ON "Users"("email");

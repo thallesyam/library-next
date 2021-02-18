@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState, FormEvent } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+import axios from 'axios'
 
 import {
   Container,
@@ -10,16 +13,58 @@ import {
 } from '../styles/pages/Home'
 
 import Studying from '../public/studying.svg'
+import { UserInterface } from '../interface'
+import formatSlug from '../utils/formatSlug'
 
 const Home = (): JSX.Element => {
+  const [notUser, setNotUser] = useState(false)
+  const [emptyUser, setEmptyUser] = useState(false)
+  const [textUser, setTextUser] = useState('')
+  const router = useRouter()
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    if (textUser) {
+      const request = await axios.get<UserInterface>(
+        `${process.env.BASEURL}/users/getUser?id=${textUser}`
+      )
+
+      const {
+        data: { name, userId }
+      } = await request
+
+      if (name && userId) {
+        localStorage.setItem('username', name)
+        localStorage.setItem('userId', userId)
+        setNotUser(false)
+        router.push(`/${formatSlug(name)}`)
+      } else {
+        setNotUser(true)
+      }
+
+      setEmptyUser(false)
+    } else {
+      setEmptyUser(true)
+    }
+  }
+
   return (
     <Container>
       <ContainerLogin>
         <OpenBook />
         <h1>Faça seu Login</h1>
 
-        <form>
-          <input type="text" placeholder="Save Me" />
+        <form onSubmit={handleSubmit}>
+          {emptyUser && <p>O campo não pode ser vazio</p>}
+          {notUser && <p>ID inválido, por favor digite um id valido</p>}
+          <input
+            type="text"
+            placeholder="Save Me"
+            onChange={e => setTextUser(e.target.value)}
+            value={textUser}
+          />
+
           <br />
           <button type="submit">Enviar</button>
         </form>

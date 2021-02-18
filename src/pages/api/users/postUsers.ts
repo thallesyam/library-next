@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { UserInterface } from '../../../interface'
+import generateUniqueId from '../../../utils/generateRandomId'
 
 const prisma = new PrismaClient()
 
@@ -11,8 +12,11 @@ export default async function postUsers(
   const { method } = req
   const { name, email, phone, city, uf, image } = req.body
 
+  const id = generateUniqueId()
+
   if (method === 'POST') {
     const user: UserInterface = {
+      userId: id,
       name,
       email,
       phone,
@@ -23,6 +27,7 @@ export default async function postUsers(
 
     const data = await prisma.users.create({
       data: {
+        userId: user.userId,
         name: user.name,
         email: user.email,
         phone: user.phone,
