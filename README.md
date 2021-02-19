@@ -30,23 +30,23 @@ rode um `git clone https://github.com/thallesyam/library-next.git`
 
 `Com o docker`
 ---
-Rodar um `docker push thallesyam/thallesyam:latest` para baixar a imagem
-docker run --name `escolher o nome` -p 5432:5432 -e POSTGRES_PASSWORD=`escolher a senha` -d thallesyam/thallesyam
-Para seguir a padronização crie uma database de nome `Library` mas se preferir alterar não tem problema
-Crie um arquivo .env dentro dele coloque sua DATABASE_URI assim como no .env.example
+- Rodar um `docker push thallesyam/thallesyam:latest` para baixar a imagem
+- docker run --name `escolher o nome` -p 5432:5432 -e POSTGRES_PASSWORD=`escolher a senha` -d thallesyam/thallesyam
+- Para seguir a padronização crie uma database de nome `Library` mas se preferir alterar não tem problema
+- Crie um arquivo .env dentro dele coloque sua DATABASE_URI assim como no .env.example
 (estamos chegando lá prometo kkkk 😵)
-Rode um `yarn` ou `npm i`
-Rode um `npx prisma migrate dev --name init --preview-feature` para criar schemas
-Rode um `yarn dev` ou `npm run dev`
+- Rode um `yarn` ou `npm i`
+- Rode um `npx prisma migrate dev --name init --preview-feature` para criar schemas
+- Rode um `yarn dev` ou `npm run dev`
 
 ---
 
 `Sem o docker`
 ---
-Crie uma database no postgres 
-Para seguir a padronização crie uma database de nome `Library` mas se preferir alterar não tem problema
-Crie um arquivo .env dentro dele coloque sua DATABASE_URI assim como no .env.example
-Rode um `yarn` ou `npm i`
-npx prisma migrate dev --name init --preview-feature 
-Rode um `yarn dev` ou `npm run dev`
+- Crie uma database no postgres 
+- Para seguir a padronização crie uma database de nome `Library` mas se preferir alterar não tem problema
+- Crie um arquivo .env dentro dele coloque sua DATABASE_URI assim como no .env.example
+- Rode um `yarn` ou `npm i`
+- npx prisma migrate dev --name init --preview-feature 
+- Rode um `yarn dev` ou `npm run dev`
 ---
