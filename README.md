@@ -1,8 +1,8 @@
-# Biblioteca em Nextjs
+# Biblioteca em Nextjs 📚
 
 ![open-book](https://user-images.githubusercontent.com/59545660/108439778-afe5c600-7230-11eb-8a65-29b6624491bf.png)
 
-## Funcionalidades:
+## Funcionalidades 🕹:
 
 - Criar usuário
 - Logar com id
@@ -10,7 +10,7 @@
 - Cadastrar Livro
 - Editar e Deletar um livro
 
-# Ferramentas:
+# Ferramentas 🛠:
 
 - Next + Typescript
 - Eslint + Prettier
@@ -19,16 +19,16 @@
 - Postgres SQL
 - Prisma
 
-# Aprendizados
+# Aprendizados ✏: 
 
 O foco do projeto foi aprender a como utilizar o Prisma e principalmente o Cypress
 Tanto no desenvolvimento Frontend quanto nas rotas de API do Next
 
-# Para Rodar
+# Para Rodar 💿
 
 rode um `git clone https://github.com/thallesyam/library-next.git`
 
-`Com o docker`
+`Com o docker` 🐳✅
 ---
 - Rodar um `docker push thallesyam/thallesyam:latest` para baixar a imagem
 - docker run --name `escolher o nome` -p 5432:5432 -e POSTGRES_PASSWORD=`escolher a senha` -d thallesyam/thallesyam
@@ -41,7 +41,7 @@ rode um `git clone https://github.com/thallesyam/library-next.git`
 
 ---
 
-`Sem o docker`
+`Sem o docker` 🐳❌
 ---
 - Crie uma database no postgres 
 - Para seguir a padronização crie uma database de nome `Library` mas se preferir alterar não tem problema
